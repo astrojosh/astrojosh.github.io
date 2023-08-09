@@ -18,7 +18,7 @@
             });
         });
 
-        var num_of_images = 3;
+        var num_of_images = 5;
         var index = num_of_images;
 
         function slidePhoto(inc) {
@@ -26,10 +26,10 @@
             if (index == 0) {
                 index = num_of_images;
             }
-            document.getElementById("gallery-left-img").setAttribute("src", "photos/" + ((index - 1) % num_of_images) + ".jpg")
-            document.getElementById("gallery-middle-img").setAttribute("src", "photos/" + (index % num_of_images) + ".jpg")
-            document.getElementById("gallery-right-img").setAttribute("src", "photos/" + ((index + 1) % num_of_images) + ".jpg")
-            document.getElementById("lightbox-img").setAttribute("src", "photos/" + (index % num_of_images) + ".jpg")
+            document.getElementById("gallery-left-img").setAttribute("src", "docs/photos/" + ((index - 1) % num_of_images) + ".jpg")
+            document.getElementById("gallery-middle-img").setAttribute("src", "docs/photos/" + (index % num_of_images) + ".jpg")
+            document.getElementById("gallery-right-img").setAttribute("src", "docs/photos/" + ((index + 1) % num_of_images) + ".jpg")
+            document.getElementById("lightbox-img").setAttribute("src", "docs/photos/" + (index % num_of_images) + ".jpg")
         }
 
         var lightbox_visible = false;
@@ -53,7 +53,7 @@
 
         <div class="header">
 
-            <div class="name">Joshua Morrow</div>
+            <div class="name">Josh Morrow</div>
             <div class="link-container">
                 <div></div>
                 <div class="links">
@@ -71,7 +71,7 @@
         </div>
 
         <div class="mobile-header">
-            <div class="name">Joshua Morrow</div>
+            <div class="name">Josh Morrow</div>
         </div>
 
 
@@ -106,7 +106,7 @@
 
                 <div class="content-project">
                     <div class="project-img">
-                        <img src="projects/collision_sim/preview.png">
+                        <img src="docs/projects/collision_sim/preview.png">
                     </div>
                     <div class="project-desc">
                         <div></div>
@@ -150,13 +150,13 @@
                         </div>
                     </div>
                     <div class="project-img">
-                        <img src="projects/quantum_circuits/preview.png">
+                        <img src="docs/projects/quantum_circuits/preview.png">
                     </div>
                 </div>
 
                 <div class="content-project">
                     <div class="project-img">
-                        <img src="projects/solve_pde/preview.png">
+                        <img src="docs/projects/solve_pde/preview.png">
                     </div>
                     <div class="project-desc">
                         <div></div>
@@ -189,16 +189,16 @@
                 </div>
                 <div class="photo-gallery-container">
                     <div class="gallery-left">
-                        <img id="gallery-left-img" src="photos/2.jpg">
+                        <img id="gallery-left-img" src="docs/photos/2.jpg">
                         <img id="gallery-left-pointer" src="icons/left.png">
                     </div>
                     <div></div>
                     <div class="gallery-middle">
-                        <img id="gallery-middle-img" src="photos/0.jpg">
+                        <img id="gallery-middle-img" src="docs/photos/0.jpg">
                     </div>
                     <div></div>
                     <div class="gallery-right">
-                        <img id="gallery-right-img" src="photos/1.jpg">
+                        <img id="gallery-right-img" src="docs/photos/1.jpg">
                         <img id="gallery-right-pointer" src="icons/right.png">
                     </div>
                 </div>
@@ -216,7 +216,7 @@
 
     <div id="lightbox">
         <div class="lightbox-container">
-            <img src="photos/0.png" id="lightbox-img">
+            <img src="docs/photos/0.jpg" id="lightbox-img">
             <img src="icons/close.png" class="close-lightbox">
         </div>
     </div>
