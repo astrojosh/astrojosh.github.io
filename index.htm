@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Josh Morrow</title>
+    <link rel="stylesheet" href="style/main.css">
+    <script>
+        document.addEventListener("DOMContentLoaded", function (event) {
+            document.getElementById("gallery-left-img").addEventListener("click", slidePhoto.bind(this, -1));
+            document.getElementById("gallery-left-pointer").addEventListener("click", slidePhoto.bind(this, -1));
+            document.getElementById("gallery-middle-img").addEventListener("click", toggleLightbox);
+            document.getElementById("gallery-right-img").addEventListener("click", slidePhoto.bind(this, 1));
+            document.getElementById("gallery-right-pointer").addEventListener("click", slidePhoto.bind(this, 1));
+            document.getElementById("lightbox").addEventListener("click", function (e) {
+                if (e.target.id != "lightbox-img") {
+                    toggleLightbox()
+                }
+            });
+        });
+
+        var num_of_images = 3;
+        var index = num_of_images;
+
+        function slidePhoto(inc) {
+            index += inc;
+            if (index == 0) {
+                index = num_of_images;
+            }
+            document.getElementById("gallery-left-img").setAttribute("src", "photos/" + ((index - 1) % num_of_images) + ".jpg")
+            document.getElementById("gallery-middle-img").setAttribute("src", "photos/" + (index % num_of_images) + ".jpg")
+            document.getElementById("gallery-right-img").setAttribute("src", "photos/" + ((index + 1) % num_of_images) + ".jpg")
+            document.getElementById("lightbox-img").setAttribute("src", "photos/" + (index % num_of_images) + ".jpg")
+        }
+
+        var lightbox_visible = false;
+
+        function toggleLightbox() {
+            if (lightbox_visible) {
+                document.getElementById("lightbox").setAttribute("style", "display: none");
+                lightbox_visible = false;
+            }
+            else {
+                document.getElementById("lightbox").setAttribute("style", "display: flex");
+                lightbox_visible = true;
+            }
+        }
+    </script>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="header">
+
+            <div class="name">Joshua Morrow</div>
+            <div class="link-container">
+                <div></div>
+                <div class="links">
+                    <div></div>
+                    <a href="#about">About</a>
+                    <div></div>
+                    <a href="#projects">Projects</a>
+                    <div></div>
+                    <a href="#photography">Photography</a>
+                    <div></div>
+                </div>
+                <div></div>
+            </div>
+
+        </div>
+
+        <div class="mobile-header">
+            <div class="name">Joshua Morrow</div>
+        </div>
+
+
+        <div></div>
+
+        <div class="main">
+
+            <div class="subheading" id="about">About</div>
+
+            <div class="content" id="about-content">
+                <div class="about-content-text">
+                    Hi! My name is Josh and I'm a maths and physics graduate interested in software development.
+                </div>
+                <div class="about-links-container">
+                    <div class="about-links-label">
+                        <div class="about-links-label-align">Links:</div>
+                    </div>
+                    <div></div>
+                    <div class="about-links">
+                        <div class="about-links-link"><img src="icons/github.png"><a
+                                href="https://github.com/astrojosh">@astrojosh</a></div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="subheading" id="projects">Projects</div>
+
+            <div class="projects-intro">A showcase of some of the open source projects I have developed:</div>
+
+            <div class="content" id="project-content">
+
+                <div class="content-project">
+                    <div class="project-img">
+                        <img src="projects/collision_sim/preview.png">
+                    </div>
+                    <div class="project-desc">
+                        <div></div>
+                        <div class="project-desc-grid right">
+                            <div></div>
+                            <div>
+                                <div class="project-desc-title"><a
+                                        href="https://github.com/astrojosh.collision-sim">Collision Simulator</a></div>
+                                <div class="project-desc-content">
+                                    A simple physics simulator to model collisions between a moving ball and a large
+                                    mass stationary object. Written in Python and includes options to change stationary
+                                    object, provides information on the number of bounces that occur and comparison with
+                                    approximate formulae derived quantitatively.
+                                    <div class="project-link"><b>Project Page:</b> <a
+                                            href="https://github.com/astrojosh/collision-sim">https://github.com/astrojosh/collision-sim</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="content-project">
+                    <div class="project-desc">
+                        <div></div>
+                        <div class="project-desc-grid left">
+                            <div>
+                                <div class="project-desc-title"><a
+                                        href="https://github.com/astrojosh/quantum-circuits">Quantum Circuits</a></div>
+                                <div class="project-desc-content">
+                                    A simple physics simulator to model collisions between a moving ball and a large
+                                    mass stationary object. Written in Python and includes options to change stationary
+                                    object, provides information on the number of bounces that occur and comparison with
+                                    approximate formulae derived quantitatively.
+                                    <div class="project-link"><b>Project Page:</b> <a
+                                            href="https://github.com/astrojosh/quantum-circuits">https://github.com/astrojosh/quantum-circuits</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div></div>
+                        </div>
+                    </div>
+                    <div class="project-img">
+                        <img src="projects/quantum_circuits/preview.png">
+                    </div>
+                </div>
+
+                <div class="content-project">
+                    <div class="project-img">
+                        <img src="projects/solve_pde/preview.png">
+                    </div>
+                    <div class="project-desc">
+                        <div></div>
+                        <div class="project-desc-grid right">
+                            <div></div>
+                            <div>
+                                <div class="project-desc-title"><a
+                                        href="https://github.com/astrojosh/collison-sim">Solve PDE</a></div>
+                                <div class="project-desc-content">
+                                    A simple physics simulator to model collisions between a moving ball and a large
+                                    mass stationary object. Written in Python and includes options to change stationary
+                                    object, provides information on the number of bounces that occur and comparison with
+                                    approximate formulae derived quantitatively.
+                                    <div class="project-link"><b>Project Page:</b> <a
+                                            href="https://github.com/astrojosh/collison-sim">https://github.com/astrojosh/collison-sim</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="subheading" id="photography">Photography</div>
+
+            <div class="content">
+                <div class="photo-intro">
+                    A selection of the best photographs I have taken:
+                </div>
+                <div class="photo-gallery-container">
+                    <div class="gallery-left">
+                        <img id="gallery-left-img" src="photos/2.jpg">
+                        <img id="gallery-left-pointer" src="icons/left.png">
+                    </div>
+                    <div></div>
+                    <div class="gallery-middle">
+                        <img id="gallery-middle-img" src="photos/0.jpg">
+                    </div>
+                    <div></div>
+                    <div class="gallery-right">
+                        <img id="gallery-right-img" src="photos/1.jpg">
+                        <img id="gallery-right-pointer" src="icons/right.png">
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div></div>
+
+        <div class="footer">
+            Styled and developed by Josh Morrow
+        </div>
+
+    </div>
+
+    <div id="lightbox">
+        <div class="lightbox-container">
+            <img src="photos/0.png" id="lightbox-img">
+            <img src="icons/close.png" class="close-lightbox">
+        </div>
+    </div>
+
+</body>
+
+</html>
