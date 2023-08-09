@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>{{ docs.title }}</title>
+    <link rel="stylesheet" href="style/main.css">
+    <script>
+        document.addEventListener("DOMContentLoaded", function (event) {
+            document.getElementById("gallery-left-img").addEventListener("click", slidePhoto.bind(this, -1));
+            document.getElementById("gallery-left-pointer").addEventListener("click", slidePhoto.bind(this, -1));
+            document.getElementById("gallery-middle-img").addEventListener("click", toggleLightbox);
+            document.getElementById("gallery-right-img").addEventListener("click", slidePhoto.bind(this, 1));
+            document.getElementById("gallery-right-pointer").addEventListener("click", slidePhoto.bind(this, 1));
+            document.getElementById("lightbox").addEventListener("click", function (e) {
+                if (e.target.id != "lightbox-img") {
+                    toggleLightbox()
+                }
+            });
+        });
+
+        var num_of_images = 5;
+        var index = num_of_images;
+
+        function slidePhoto(inc) {
+            index += inc;
+            if (index == 0) {
+                index = num_of_images;
+            }
+            document.getElementById("gallery-left-img").setAttribute("src", "docs/photos/" + ((index - 1) % num_of_images) + ".jpg")
+            document.getElementById("gallery-middle-img").setAttribute("src", "docs/photos/" + (index % num_of_images) + ".jpg")
+            document.getElementById("gallery-right-img").setAttribute("src", "docs/photos/" + ((index + 1) % num_of_images) + ".jpg")
+            document.getElementById("lightbox-img").setAttribute("src", "docs/photos/" + (index % num_of_images) + ".jpg")
+        }
+
+        var lightbox_visible = false;
+
+        function toggleLightbox() {
+            if (lightbox_visible) {
+                document.getElementById("lightbox").setAttribute("style", "display: none");
+                lightbox_visible = false;
+            }
+            else {
+                document.getElementById("lightbox").setAttribute("style", "display: flex");
+                lightbox_visible = true;
+            }
+        }
+    </script>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="header">
+
+            <div class="name">{{ docs.title }}</div>
+            <div class="link-container">
+                <div></div>
+                <div class="links">
+                    <div></div>
+                    {{ for section in docs.sections }}
+                    <a href="#about">About</a>
+                    <div></div>
+                    <a href="#projects">Projects</a>
+                    <div></div>
+                    <a href="#photography">Photography</a>
+                    <div></div>
+                </div>
+                <div></div>
+            </div>
+
+        </div>
+
+        <div class="mobile-header">
+            <div class="name">{{ docs.title }}</div>
+        </div>
+
+
+        <div></div>
+
+        <div class="main">
+
+            <div class="subheading" id="about">About</div>
+
+            <div class="content" id="about-content">
+                <div class="about-content-text">
+                    {{ docs.about }}
+                </div>
+                <div class="about-links-container">
+                    <div class="about-links-label">
+                        <div class="about-links-label-align">Links:</div>
+                    </div>
+                    <div></div>
+                    <div class="about-links">
+                        <div class="about-links-link">{{ docs.about.links }}</div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="subheading" id="projects">Projects</div>
+
+            <div class="projects-intro">{{ docs.projects }}</div>
+
+            <div class="content" id="project-content">
+
+                {{ for project in docs.projects }}
+
+            </div>
+
+
+            <div class="subheading" id="photography">Photography</div>
+
+            <div class="content">
+                <div class="photo-intro">
+                    {{ docs.photography }}
+                </div>
+                <div class="photo-gallery-container">
+                    <div class="gallery-left">
+                        <img id="gallery-left-img" src="docs/photos/2.jpg">
+                        <img id="gallery-left-pointer" src="icons/left.png">
+                    </div>
+                    <div></div>
+                    <div class="gallery-middle">
+                        <img id="gallery-middle-img" src="docs/photos/0.jpg">
+                    </div>
+                    <div></div>
+                    <div class="gallery-right">
+                        <img id="gallery-right-img" src="docs/photos/1.jpg">
+                        <img id="gallery-right-pointer" src="icons/right.png">
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div></div>
+
+        <div class="footer">
+            {{ docs.footer }}
+        </div>
+
+    </div>
+
+    <div id="lightbox">
+        <div class="lightbox-container">
+            <img src="docs/photos/0.jpg" id="lightbox-img">
+            <img src="icons/close.png" class="close-lightbox">
+        </div>
+    </div>
+
+</body>
+
+</html>
