@@ -3,5 +3,5 @@ docs: docs/README.md
 	@echo "Making docs!"
 
 # Create html from template and docs
-site:
+site: docs
 	@echo "Making site!"
