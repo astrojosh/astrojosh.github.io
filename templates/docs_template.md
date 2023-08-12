@@ -6,7 +6,7 @@ Hi! My name is Josh and I'm a maths and physics graduate interested in software 
 
 ### Links
 
-![Github](/icons/github.png) [@astrojosh](https://github.com/astrojosh)
+![Github](/icons/github.png)[@astrojosh](https://github.com/astrojosh)
 
 ## Projects
 
