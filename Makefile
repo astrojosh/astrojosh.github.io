@@ -1,10 +1,25 @@
-# Create html from template.htm and docs.yaml
-index.htm:
-	@make -C docs/ README.md docs.yaml --no-print-directory
-	@echo "Making site!"
-	@echo "Made site!"
+DOC_PATH = docs
+TEMPLATE_PATH = templates
+
+# Find all documentation files
+DOC_FILES = $(shell find docs/*/ -type f)
+
+# Define template and generated file names
+DOCS_TEMPLATE = $(TEMPLATE_PATH)/docs_template.md
+GEN_DOC_FILES = $(DOC_PATH)/README.md $(DOC_PATH)/docs.yaml
+
+SITE_TEMPLATE = $(TEMPLATE_PATH)/site_template.htm
+GEN_SITE_FILE = index.htm
 
 .PHONY: docs site
-docs:
-	@make -C docs/ README.md docs.yaml --no-print-directory
-site: index.htm
+
+# Generate documentation files
+$(GEN_DOC_FILES): $(DOCS_TEMPLATE) $(DOC_FILES)
+	@echo "Making docs: $@"
+
+# Generate site
+$(GEN_SITE_FILE): $(SITE_TEMPLATE) $(GEN_DOC_FILES)
+	@echo "Making site: $@"
+
+docs: $(GEN_DOC_FILES)
+site: $(GEN_SITE_FILE)
