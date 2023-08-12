@@ -12,13 +12,13 @@ Hi! My name is Josh and I'm a maths and physics graduate interested in software 
 
 A showcase of some of the open source projects I have developed:
 
-{{ projects/*/README.md }}
+{{ src/projects/*/README.md }}
 
 ## Photography
 
 A selection of the best photographs I have taken:
 
-{{ photos/*.jpg }}
+{{ src/photos/*.jpg }}
 
 ## Footer
 

@@ -2,7 +2,7 @@ DOC_PATH = docs
 TEMPLATE_PATH = templates
 
 # Find all documentation files
-DOC_FILES = $(shell find docs/*/ -type f)
+DOC_FILES = $(shell find docs/src/ -type f)
 
 # Define template and generated file names
 DOCS_TEMPLATE = $(TEMPLATE_PATH)/docs_template.md
